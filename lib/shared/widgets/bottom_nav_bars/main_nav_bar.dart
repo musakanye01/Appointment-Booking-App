@@ -1,3 +1,4 @@
+import 'package:doctor_booking_app_with_flutter_and_bloc/screens/doctor_details_screen.dart';
 import 'package:flutter/material.dart';
 
 class MainNavBar extends StatelessWidget {
@@ -25,7 +26,15 @@ class MainNavBar extends StatelessWidget {
             break;
           case 1:
             print(index);
-            // TODO: Navigate somewhere
+            // TODO: Testing detail if it still works
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return const DoctorDetailsScreen(doctorId: "2");
+                },
+              ),
+            );
             break;
           // ... other index
           default:
@@ -34,19 +43,11 @@ class MainNavBar extends StatelessWidget {
       items: const [
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
-          label: 'Discover',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.explore_outlined),
-          label: 'Explore',
+          label: 'Home',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.calendar_month_outlined),
-          label: 'Booking',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.chat_outlined),
-          label: 'Chat',
+          label: 'Bookings',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.person_outline),

@@ -6,13 +6,13 @@ import 'appointment_status.dart';
 
 class Appointment extends Equatable {
   final String id;
-  final Doctor doctor;
+  final Session doctor;
   // final Patient patient;
   final DateTime date;
   final TimeOfDay time;
   // final AppointmentReason reason;
   final String? reason;
-  final AppointmentStatus? status;
+  final BookingStatus? status;
 
   const Appointment({
     required this.id,

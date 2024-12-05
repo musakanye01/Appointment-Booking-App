@@ -4,7 +4,7 @@ enum DoctorDetailsStatus { initial, loading, loaded, error }
 
 class DoctorDetailsState extends Equatable {
   final DoctorDetailsStatus status;
-  final Doctor? doctor;
+  final Session? doctor;
 
   const DoctorDetailsState({
     this.status = DoctorDetailsStatus.initial,
@@ -13,7 +13,7 @@ class DoctorDetailsState extends Equatable {
 
   DoctorDetailsState copyWith({
     DoctorDetailsStatus? status,
-    Doctor? doctor,
+    Session? doctor,
   }) {
     return DoctorDetailsState(
       status: status ?? this.status,

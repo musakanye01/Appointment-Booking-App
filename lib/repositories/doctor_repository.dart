@@ -6,24 +6,24 @@ class DoctorRepository {
       // e.g. class to connect with the db
       );
 
-  Future<List<DoctorCategory>> fetchDoctorCategories() async {
+  Future<List<SessionCapacity>> fetchDoctorCategories() async {
     await Future.delayed(const Duration(milliseconds: 1000));
     // TODO: get those data from the DB
-    return DoctorCategory.values;
+    return SessionCapacity.values;
   }
 
-  Future<List<Doctor>> fetchDoctors() async {
+  Future<List<Session>> fetchDoctors() async {
     await Future.delayed(const Duration(milliseconds: 1000));
-    return Doctor.sampleDoctors;
+    return Session.sampleSession;
   }
 
-  Future<List<Doctor>> fetchDoctorsByCategory(String categoryId) async {
+  Future<List<Session>> fetchDoctorsByCategory(String categoryId) async {
     throw UnimplementedError();
   }
 
-  Future<Doctor?> fetchDoctorById(String doctorId) async {
+  Future<Session?> fetchDoctorById(String doctorId) async {
     await Future.delayed(const Duration(milliseconds: 1000));
-    return Doctor.sampleDoctors.firstWhere(
+    return Session.sampleSession.firstWhere(
       (doctor) => doctor.id == doctorId,
     );
   }

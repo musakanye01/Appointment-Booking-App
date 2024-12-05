@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../shared/widgets/avatars/circle_avatar_with_text_label.dart';
 import '../shared/widgets/bottom_nav_bars/main_nav_bar.dart';
 import '../shared/widgets/cards/appointment_preview_card.dart';
-import '../shared/widgets/list_tiles/doctor_list_tile.dart';
+import '../shared/widgets/list_tiles/session_list_tile.dart';
 import '../shared/widgets/titles/section_title.dart';
 import '../state/home/home_bloc.dart';
 
@@ -40,46 +39,19 @@ class HomeView extends StatelessWidget {
             ),
             const SizedBox(height: 4.0),
             Text(
-              'Massimo D',
+              'Tendai',
               style: textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 4.0),
-            Row(
-              children: [
-                Icon(
-                  Icons.location_on,
-                  color: colorScheme.secondary,
-                ),
-                const SizedBox(width: 4.0),
-                Text(
-                  'Dubai, UAE',
-                  style: textTheme.bodySmall!.copyWith(
-                    color: colorScheme.secondary,
-                  ),
-                ),
-                const SizedBox(width: 4.0),
-                Icon(
-                  Icons.expand_more,
-                  color: colorScheme.secondary,
-                ),
-              ],
-            ),
           ],
         ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.notifications_outlined),
-          ),
-          const SizedBox(width: 8.0),
-        ],
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(64.0),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextFormField(
               decoration: InputDecoration(
-                hintText: 'Search for doctors...',
+                hintText: 'Search for bookings',
                 prefixIcon: const Icon(Icons.search),
                 suffixIcon: Container(
                   margin: const EdgeInsets.all(4.0),
@@ -109,11 +81,9 @@ class HomeView extends StatelessWidget {
               padding: EdgeInsets.all(8.0),
               child: Column(
                 children: [
-                  _DoctorCategories(),
-                  SizedBox(height: 24.0),
                   _MySchedule(),
                   SizedBox(height: 24.0),
-                  _NearbyDoctors(),
+                  _DailyAvailableSessions(),
                 ],
               ),
             );
@@ -123,42 +93,6 @@ class HomeView extends StatelessWidget {
         },
       ),
       bottomNavigationBar: const MainNavBar(),
-    );
-  }
-}
-
-class _DoctorCategories extends StatelessWidget {
-  const _DoctorCategories();
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<HomeBloc, HomeState>(
-      builder: (context, state) {
-        return Column(
-          children: [
-            SectionTitle(
-              title: 'Categories',
-              action: 'See all',
-              onPressed: () {},
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: state.doctorCategories
-                  // Take 5 could be added in the bloc calculation
-                  .take(5)
-                  .map(
-                    (category) => Expanded(
-                      child: CircleAvatarWithTextLabel(
-                        icon: category.icon,
-                        label: category.name,
-                      ),
-                    ),
-                  )
-                  .toList(),
-            ),
-          ],
-        );
-      },
     );
   }
 }
@@ -175,7 +109,9 @@ class _MySchedule extends StatelessWidget {
             SectionTitle(
               title: 'My Schedule',
               action: 'See all',
-              onPressed: () {},
+              onPressed: () {
+                //Navigate to a list of the appointment preview cards,
+              },
             ),
             AppointmentPreviewCard(
               appointment: state.myAppointments.firstOrNull,
@@ -187,8 +123,8 @@ class _MySchedule extends StatelessWidget {
   }
 }
 
-class _NearbyDoctors extends StatelessWidget {
-  const _NearbyDoctors();
+class _DailyAvailableSessions extends StatelessWidget {
+  const _DailyAvailableSessions();
 
   @override
   Widget build(BuildContext context) {
@@ -199,7 +135,7 @@ class _NearbyDoctors extends StatelessWidget {
         return Column(
           children: [
             SectionTitle(
-              title: 'Nearby Doctors',
+              title: 'Sessions Available Today ',
               action: 'See all',
               onPressed: () {},
             ),
@@ -213,10 +149,10 @@ class _NearbyDoctors extends StatelessWidget {
                   color: colorScheme.surfaceContainerHighest,
                 );
               },
-              itemCount: state.nearbyDoctors.length,
+              itemCount: state.dailyAvailableSession.length,
               itemBuilder: (context, index) {
-                final doctor = state.nearbyDoctors[index];
-                return DoctorListTile(doctor: doctor);
+                final session = state.dailyAvailableSession[index];
+                return SessionListTile(session: session);
               },
             ),
           ],

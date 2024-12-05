@@ -31,8 +31,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         doctorsFuture,
       ]);
 
-      final categories = response[0] as List<DoctorCategory>;
-      final doctors = response[1] as List<Doctor>;
+      final categories = response[0] as List<SessionCapacity>;
+      final doctors = response[1] as List<Session>;
 
       emit(
         state.copyWith(

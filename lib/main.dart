@@ -6,6 +6,8 @@ import 'repositories/doctor_repository.dart';
 import 'screens/home_screen.dart';
 import 'shared/theme/app_theme.dart';
 
+
+//TODO: Refactor every doctor reference and other unneccessary details
 void main() {
   const doctorRepository = DoctorRepository();
   runApp(const AppScreen(doctorRepository: doctorRepository));

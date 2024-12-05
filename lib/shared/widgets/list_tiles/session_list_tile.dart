@@ -3,13 +3,13 @@ import 'package:models/models.dart';
 
 import '../../../screens/doctor_details_screen.dart';
 
-class DoctorListTile extends StatelessWidget {
-  const DoctorListTile({
+class SessionListTile extends StatelessWidget {
+  const SessionListTile({
     super.key,
-    required this.doctor,
+    required this.session,
   });
 
-  final Doctor doctor;
+  final Session session;
 
   @override
   Widget build(BuildContext context) {
@@ -22,19 +22,15 @@ class DoctorListTile extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return DoctorDetailsScreen(doctorId: doctor.id);
+              return DoctorDetailsScreen(doctorId: session.id);
             },
           ),
         );
       },
       contentPadding: EdgeInsets.zero,
-      leading: CircleAvatar(
-        radius: 30.0,
-        backgroundColor: colorScheme.surface,
-        backgroundImage: NetworkImage(doctor.profileImageUrl),
-      ),
+      leading: Icon(session.sessionIcon.icon),
       title: Text(
-        doctor.name,
+        session.name,
         style: textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.bold),
       ),
       subtitle: Column(
@@ -42,7 +38,7 @@ class DoctorListTile extends StatelessWidget {
         children: [
           const SizedBox(height: 4.0),
           Text(
-            doctor.category.name,
+            session.capacity.name,
             style: textTheme.bodyMedium!.copyWith(
               color: colorScheme.secondary,
             ),
@@ -50,21 +46,10 @@ class DoctorListTile extends StatelessWidget {
           const SizedBox(height: 8.0),
           Row(
             children: [
-             const  Icon(Icons.star,
-                  color:  Color.fromRGBO(255, 204, 128, 1), size: 16),
-              const SizedBox(width: 4.0),
-              Text(
-                doctor.rating.toString(),
-                style: textTheme.bodySmall!.copyWith(
-                  color: colorScheme.onSurface.withOpacity(0.5),
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(width: 16),
-              Icon(Icons.work, color: colorScheme.tertiary, size: 16),
+              Icon(Icons.location_city, color: colorScheme.tertiary, size: 16),
               const SizedBox(width: 4),
               Text(
-                '3 years',
+                session.address,
                 style: textTheme.bodySmall!.copyWith(
                   color: colorScheme.onSurface.withOpacity(.5),
                   fontWeight: FontWeight.bold,

@@ -4,12 +4,12 @@ import 'package:models/models.dart';
 class DoctorCard extends StatefulWidget {
   const DoctorCard({
     super.key,
-    required this.doctor,
+    required this.session,
     this.showAbout = true,
     this.showMoreInformation = true,
   });
 
-  final Doctor doctor;
+  final Session session;
   final bool showAbout;
   final bool showMoreInformation;
 
@@ -29,7 +29,7 @@ class _DoctorCardState extends State<DoctorCard> {
       {
         'icon': Icons.account_circle_outlined,
         'label': 'Patients',
-        'value': widget.doctor.patientCount,
+        'value': "WTF",
       },
       {
         'icon': Icons.star_border,
@@ -39,12 +39,12 @@ class _DoctorCardState extends State<DoctorCard> {
       {
         'icon': Icons.favorite_border,
         'label': 'Rating',
-        'value': widget.doctor.rating,
+        'value': "WTF",
       },
       {
         'icon': Icons.numbers,
         'label': 'Reviews',
-        'value': widget.doctor.reviewCount,
+        'value': "WTF",
       }
     ];
 
@@ -60,7 +60,6 @@ class _DoctorCardState extends State<DoctorCard> {
               CircleAvatar(
                 radius: 48.0,
                 backgroundColor: colorScheme.surface,
-                backgroundImage: NetworkImage(widget.doctor.profileImageUrl),
               ),
               const SizedBox(width: 16.0),
               Expanded(
@@ -68,13 +67,13 @@ class _DoctorCardState extends State<DoctorCard> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      widget.doctor.name,
+                      widget.session.name,
                       style: textTheme.bodyLarge!
                           .copyWith(fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 4.0),
                     Text(
-                      widget.doctor.category.name,
+                      widget.session.capacity.name,
                       style: textTheme.bodyMedium!.copyWith(
                         color: colorScheme.onSurface.withOpacity(.5),
                       ),
@@ -113,7 +112,7 @@ class _DoctorCardState extends State<DoctorCard> {
                   ),
                   const SizedBox(height: 8.0),
                   Text(
-                    widget.doctor.bio,
+                    widget.session.sessionNotes,
                     maxLines: showAll ? null : 3,
                     style: textTheme.bodyMedium!.copyWith(
                       color: colorScheme.onSurface.withOpacity(.5),

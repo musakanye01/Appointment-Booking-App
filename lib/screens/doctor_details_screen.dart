@@ -74,10 +74,10 @@ class DoctorDetailsView extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  DoctorCard(doctor: state.doctor!),
+                  DoctorCard(session: state.doctor!),
                   Divider(
                       height: 32.0, color: colorScheme.surfaceContainerHighest),
-                  _DoctorWorkingHours(workingHours: doctor.workingHours),
+                  //const _DoctorWorkingHours(workingHours: 2.0),
                 ],
               ),
             );
