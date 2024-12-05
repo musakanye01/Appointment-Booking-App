@@ -30,7 +30,7 @@ class DoctorListTile extends StatelessWidget {
       contentPadding: EdgeInsets.zero,
       leading: CircleAvatar(
         radius: 30.0,
-        backgroundColor: colorScheme.background,
+        backgroundColor: colorScheme.surface,
         backgroundImage: NetworkImage(doctor.profileImageUrl),
       ),
       title: Text(
@@ -40,7 +40,7 @@ class DoctorListTile extends StatelessWidget {
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 4.0),
+          const SizedBox(height: 4.0),
           Text(
             doctor.category.name,
             style: textTheme.bodyMedium!.copyWith(
@@ -50,13 +50,13 @@ class DoctorListTile extends StatelessWidget {
           const SizedBox(height: 8.0),
           Row(
             children: [
-              Icon(Icons.star,
-                  color: const Color.fromRGBO(255, 204, 128, 1), size: 16),
+             const  Icon(Icons.star,
+                  color:  Color.fromRGBO(255, 204, 128, 1), size: 16),
               const SizedBox(width: 4.0),
               Text(
                 doctor.rating.toString(),
                 style: textTheme.bodySmall!.copyWith(
-                  color: colorScheme.onBackground.withOpacity(0.5),
+                  color: colorScheme.onSurface.withOpacity(0.5),
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -66,7 +66,7 @@ class DoctorListTile extends StatelessWidget {
               Text(
                 '3 years',
                 style: textTheme.bodySmall!.copyWith(
-                  color: colorScheme.onBackground.withOpacity(.5),
+                  color: colorScheme.onSurface.withOpacity(.5),
                   fontWeight: FontWeight.bold,
                 ),
               ),

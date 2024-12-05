@@ -17,7 +17,7 @@ class AppointmentPreviewCard extends StatelessWidget {
     return Column(
       children: [
         Container(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8.0),
             gradient: LinearGradient(

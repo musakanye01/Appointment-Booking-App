@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:models/models.dart';
 
 import '../shared/widgets/avatars/circle_avatar_with_text_label.dart';
 import '../shared/widgets/bottom_nav_bars/main_nav_bar.dart';
@@ -39,12 +38,12 @@ class HomeView extends StatelessWidget {
               'Welcome',
               style: textTheme.bodyMedium,
             ),
-            SizedBox(height: 4.0),
+            const SizedBox(height: 4.0),
             Text(
               'Massimo D',
               style: textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 4.0),
+            const SizedBox(height: 4.0),
             Row(
               children: [
                 Icon(
@@ -91,7 +90,7 @@ class HomeView extends StatelessWidget {
                   ),
                   child: Icon(
                     Icons.filter_alt_outlined,
-                    color: colorScheme.surfaceVariant,
+                    color: colorScheme.surfaceContainerHighest,
                   ),
                 ),
               ),
@@ -211,7 +210,7 @@ class _NearbyDoctors extends StatelessWidget {
               separatorBuilder: (context, index) {
                 return Divider(
                   height: 24.0,
-                  color: colorScheme.surfaceVariant,
+                  color: colorScheme.surfaceContainerHighest,
                 );
               },
               itemCount: state.nearbyDoctors.length,

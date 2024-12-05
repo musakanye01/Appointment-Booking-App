@@ -59,7 +59,7 @@ class _DoctorCardState extends State<DoctorCard> {
             children: [
               CircleAvatar(
                 radius: 48.0,
-                backgroundColor: colorScheme.background,
+                backgroundColor: colorScheme.surface,
                 backgroundImage: NetworkImage(widget.doctor.profileImageUrl),
               ),
               const SizedBox(width: 16.0),
@@ -76,7 +76,7 @@ class _DoctorCardState extends State<DoctorCard> {
                     Text(
                       widget.doctor.category.name,
                       style: textTheme.bodyMedium!.copyWith(
-                        color: colorScheme.onBackground.withOpacity(.5),
+                        color: colorScheme.onSurface.withOpacity(.5),
                       ),
                     ),
                     const SizedBox(height: 8.0),
@@ -91,7 +91,7 @@ class _DoctorCardState extends State<DoctorCard> {
                         Text(
                           'New York, USA',
                           style: textTheme.bodySmall!.copyWith(
-                            color: colorScheme.onBackground.withOpacity(.5),
+                            color: colorScheme.onSurface.withOpacity(.5),
                           ),
                         )
                       ],
@@ -101,7 +101,7 @@ class _DoctorCardState extends State<DoctorCard> {
               ),
             ],
           ),
-          Divider(height: 32.0, color: colorScheme.surfaceVariant),
+          Divider(height: 32.0, color: colorScheme.surfaceContainerHighest),
 
           // About
           ...widget.showAbout
@@ -116,7 +116,7 @@ class _DoctorCardState extends State<DoctorCard> {
                     widget.doctor.bio,
                     maxLines: showAll ? null : 3,
                     style: textTheme.bodyMedium!.copyWith(
-                      color: colorScheme.onBackground.withOpacity(.5),
+                      color: colorScheme.onSurface.withOpacity(.5),
                     ),
                   ),
                   TextButton(

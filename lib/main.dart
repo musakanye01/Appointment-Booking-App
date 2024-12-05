@@ -7,8 +7,8 @@ import 'screens/home_screen.dart';
 import 'shared/theme/app_theme.dart';
 
 void main() {
-  final doctorRepository = DoctorRepository();
-  runApp(AppScreen(doctorRepository: doctorRepository));
+  const doctorRepository = DoctorRepository();
+  runApp(const AppScreen(doctorRepository: doctorRepository));
 }
 
 class AppScreen extends StatelessWidget {

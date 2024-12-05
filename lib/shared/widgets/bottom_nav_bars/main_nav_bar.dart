@@ -10,7 +10,7 @@ class MainNavBar extends StatelessWidget {
 
     return BottomNavigationBar(
       selectedItemColor: colorScheme.primary,
-      unselectedItemColor: colorScheme.onBackground.withOpacity(0.5),
+      unselectedItemColor: colorScheme.onSurface.withOpacity(0.5),
       showSelectedLabels: true,
       showUnselectedLabels: true,
       unselectedFontSize: 14,

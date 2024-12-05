@@ -1,9 +1,9 @@
+import 'package:doctor_booking_app_with_flutter_and_bloc/shared/utils/time_of_day_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:models/models.dart';
 
 import '../repositories/doctor_repository.dart';
-import '../shared/utils/time_of_day_extensions.dart';
 import '../shared/widgets/buttons/app_icon_button.dart';
 import '../shared/widgets/cards/doctor_card.dart';
 import '../state/doctor_details/doctor_details_bloc.dart';
@@ -75,7 +75,8 @@ class DoctorDetailsView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   DoctorCard(doctor: state.doctor!),
-                  Divider(height: 32.0, color: colorScheme.surfaceVariant),
+                  Divider(
+                      height: 32.0, color: colorScheme.surfaceContainerHighest),
                   _DoctorWorkingHours(workingHours: doctor.workingHours),
                 ],
               ),
@@ -125,13 +126,14 @@ class _DoctorWorkingHours extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.all(8.0),
                   decoration: BoxDecoration(
-                    border: Border.all(color: colorScheme.surfaceVariant),
+                    border:
+                        Border.all(color: colorScheme.surfaceContainerHighest),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   child: Text(
                     workingHours[index].startTime.toCustomString(),
                     style: textTheme.bodySmall!.copyWith(
-                      color: colorScheme.onBackground.withOpacity(.5),
+                      color: colorScheme.onSurface.withOpacity(.5),
                     ),
                   ),
                 ),
@@ -141,13 +143,14 @@ class _DoctorWorkingHours extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.all(8.0),
                   decoration: BoxDecoration(
-                    border: Border.all(color: colorScheme.surfaceVariant),
+                    border:
+                        Border.all(color: colorScheme.surfaceContainerHighest),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   child: Text(
                     workingHours[index].endTime.toCustomString(),
                     style: textTheme.bodySmall!.copyWith(
-                      color: colorScheme.onBackground.withOpacity(.5),
+                      color: colorScheme.onSurface.withOpacity(.5),
                     ),
                   ),
                 ),

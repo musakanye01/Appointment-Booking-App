@@ -22,7 +22,7 @@ class AppIconButton extends StatelessWidget {
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           border: Border.all(
-            color: colorScheme.onBackground.withOpacity(0.05),
+            color: colorScheme.onSurface.withOpacity(0.05),
           ),
         ),
         child: Icon(icon, size: 24),
